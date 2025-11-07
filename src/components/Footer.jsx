@@ -16,7 +16,7 @@ const Footer = () => {
         {/* Social icons */}
         <div className="flex space-x-5 text-xl">
           <a
-            href="https://github.com/"
+            href="https://github.com/amanmn"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-500 transition-colors duration-300"
@@ -24,7 +24,7 @@ const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/amanporwal/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-500 transition-colors duration-300"
@@ -32,7 +32,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:amanporwal@example.com"
+            href="mailto:amanmandliya786@gmail.com"
             className="hover:text-indigo-500 transition-colors duration-300"
           >
             <FaEnvelope />

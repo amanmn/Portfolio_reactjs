@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const ContactSection = () => {
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // console.log(
+    //   import.meta.env.VITE_EMAILJS_SERVICEID,
+    //   import.meta.env.VITE_EMAILJS_TEMPLATEID,
+    //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // );
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICEID,
+        import.meta.env.VITE_EMAILJS_TEMPLATEID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          alert("✅ Message sent successfully!");
+          e.target.reset();
+        },
+        () => {
+          alert("❌ Failed to send message. Try again.");
+        }
+      );
+  };
+
   return (
     <section
       id="contact"
@@ -44,6 +74,8 @@ const ContactSection = () => {
 
         {/* Contact Form */}
         <motion.form
+          ref={formRef}
+          onSubmit={sendEmail}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -52,25 +84,32 @@ const ContactSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
+              name="user_name"
               placeholder="Your Name"
               className="w-full p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+              required
             />
             <input
               type="email"
+              name="user_email"
               placeholder="Your Email"
               className="w-full p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+              required
             />
           </div>
 
           <textarea
+            name="message"
             rows="5"
             placeholder="Your Message"
             className="w-full mt-6 p-3 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none"
+            required
           />
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
+            type="submit"
             className="mt-6 px-6 py-3 rounded-md bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold flex items-center justify-center gap-2 mx-auto"
           >
             Send Message <Send size={18} />
@@ -85,13 +124,13 @@ const ContactSection = () => {
           className="mt-12 flex justify-center space-x-6"
         >
           <a
-            href="mailto:amanporwal@gmail.com"
+            href="mailto:amanmandliya786@gmail.com"
             className="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:text-white transition"
           >
             <Mail size={20} />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/amanporwal/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:text-white transition"
@@ -99,7 +138,7 @@ const ContactSection = () => {
             <Linkedin size={20} />
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/amanmn"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:text-white transition"

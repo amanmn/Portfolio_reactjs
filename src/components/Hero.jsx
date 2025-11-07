@@ -24,7 +24,7 @@ const HeroSection = () => {
 
       {/* --- Content --- */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-10 sm:py-20 lg:py-24 flex flex-col items-center text-center justify-center">
-        
+
         {/* --- Heading --- */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -66,10 +66,13 @@ const HeroSection = () => {
             View My Work
           </a>
           <a
-            href="#contact"
+            href="/aman11resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
             className="px-8 py-3 rounded-full border border-indigo-500 text-indigo-500 dark:text-indigo-400 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 hover:text-white transition-all duration-300"
           >
-            Let’s Connect
+            My Resume
           </a>
         </motion.div>
 

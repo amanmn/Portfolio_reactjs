@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Code2, Rocket, Zap } from "lucide-react";
+import myPhoto from "../assets/Me.jpg"
 
 const AboutSection = () => {
     return (
@@ -33,7 +34,7 @@ const AboutSection = () => {
                 >
                     <div className="relative group w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-lg shadow-indigo-500/30 border border-gray-300/20 dark:border-gray-700/30">
                         <img
-                            src="https://avatars.githubusercontent.com/u/9919?s=280&v=4"
+                            src={myPhoto}
                             alt="Aman Porwal"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />

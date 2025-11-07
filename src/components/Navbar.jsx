@@ -51,18 +51,16 @@ const Navbar = () => {
       animate={{ y: visible ? 0 : -100 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
       className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-colors duration-500 
-      ${
-        theme === "dark"
+      ${theme === "dark"
           ? "bg-[rgba(15,15,17,0.85)] border-gray-800"
           : "bg-[rgba(255,255,255,0.8)] border-gray-200"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <h1
-          className={`text-2xl font-bold tracking-tight cursor-pointer transition-colors duration-300 ${
-            theme === "dark" ? "text-white" : "text-gray-900"
-          }`}
+          className={`text-2xl font-bold tracking-tight cursor-pointer transition-colors duration-300 ${theme === "dark" ? "text-white" : "text-gray-900"
+            }`}
           onClick={() => handleScroll("home")}
         >
           Aman<span className="text-indigo-500">.Dev</span>
@@ -74,9 +72,8 @@ const Navbar = () => {
             <li
               key={link}
               onClick={() => handleScroll(link)}
-              className={`cursor-pointer transition-colors duration-300 hover:text-indigo-500 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-700"
-              }`}
+              className={`cursor-pointer transition-colors duration-300 hover:text-indigo-500 ${theme === "dark" ? "text-gray-300" : "text-gray-700"
+                }`}
             >
               {link}
             </li>
@@ -98,9 +95,11 @@ const Navbar = () => {
           </button>
 
           {/* Hire Me */}
-          <button className="hidden md:inline-block px-5 py-2 rounded-full text-white font-medium bg-gradient-to-r from-indigo-500 to-violet-500 shadow-lg hover:shadow-indigo-400/40 hover:scale-105 transition-transform duration-300">
-            Hire Me
-          </button>
+          <a
+            href="#contact"
+            className="hidden md:inline-block px-5 py-2 rounded-full text-white font-medium bg-gradient-to-r from-indigo-500 to-violet-500 shadow-lg hover:shadow-indigo-400/40 hover:scale-105 transition-transform duration-300">
+            Let's Connect
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -109,15 +108,13 @@ const Navbar = () => {
           >
             {menuOpen ? (
               <X
-                className={`w-6 h-6 ${
-                  theme === "dark" ? "text-gray-200" : "text-gray-800"
-                }`}
+                className={`w-6 h-6 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                  }`}
               />
             ) : (
               <Menu
-                className={`w-6 h-6 ${
-                  theme === "dark" ? "text-gray-200" : "text-gray-800"
-                }`}
+                className={`w-6 h-6 ${theme === "dark" ? "text-gray-200" : "text-gray-800"
+                  }`}
               />
             )}
           </button>
@@ -139,21 +136,19 @@ const Navbar = () => {
               opacity: 0,
             }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={`md:hidden flex flex-col items-center space-y-6 py-10 ${
-              theme === "dark"
+            className={`md:hidden flex flex-col items-center space-y-6 py-10 ${theme === "dark"
                 ? "bg-gradient-to-b from-[#0A0A0C] to-[#1B1B1E]"
                 : "bg-gradient-to-b from-white to-gray-50"
-            }`}
+              }`}
           >
             {links.map((link) => (
               <button
                 key={link}
                 onClick={() => handleScroll(link)}
-                className={`text-lg font-medium transition-all duration-300 hover:scale-110 ${
-                  theme === "dark"
+                className={`text-lg font-medium transition-all duration-300 hover:scale-110 ${theme === "dark"
                     ? "text-gray-300 hover:text-indigo-400"
                     : "text-gray-800 hover:text-indigo-600"
-                }`}
+                  }`}
               >
                 {link}
               </button>
@@ -164,7 +159,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 rounded-full text-white font-medium bg-gradient-to-r from-indigo-500 to-violet-500 shadow-lg hover:shadow-indigo-400/40 transition-transform duration-300"
             >
-              Hire Me
+              Let's Connect
             </motion.button>
           </motion.div>
         )}
